@@ -25,7 +25,7 @@ const user = {
   email: "shreyamb21@gmail.com",
   phone: "+1 (201) 469 1480",
   linkedin: "https://linkedin.com/in/shreyamborah/",
-  resumeLink: "#",
+  resumeLink: "https://drive.google.com/file/d/1H58Jx8TsQvjIB9SEvkL-qhF2r8NdHiVQ/view?usp=drive_link",
   openToRelocate: true
 };
 
@@ -347,7 +347,7 @@ const ContactFooter = () => {
               💼 LinkedIn
             </a>
 
-            <a href={user.resumeLink} target="_blank" rel="noopener noreferrer" className="footer-link">
+            <a href="https://drive.google.com/file/d/1H58Jx8TsQvjIB9SEvkL-qhF2r8NdHiVQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="footer-link">
               📄 Resume
             </a>
              <a 
@@ -361,25 +361,18 @@ const ContactFooter = () => {
             📅 Book a 15-min Call
           </a>
           </div>
-
-          {/* <a 
-            href="https://calendly.com/sb10286-nyu/30min" 
-            className="footer-cta"
-            // onClick={(e) => {
-            //   e.preventDefault();
-            //   alert('https://calendly.com/sb10286-nyu/30min');
-            // }}
-          >
-            📅 Book a 15-min Call
-          </a> */}
-
-          <div className="footer-note">
+        <div className="footer-note">
+         
             <p>© 2025 Shreyam Borah. All rights reserved.</p>
             <p>Open to Product Management roles • {user.location} • Open to relocate</p>
-          </div>
+         
+        </div>         
+
         </div>
       </div>
+     
     </footer>
+    
   );
 };
 
@@ -391,7 +384,7 @@ const HomePage = () => {
         <div className="hero-section">
           <div className="profile-card">
             <div className="profile-avatar">
-              <div className="avatar-placeholder">SB</div>
+              <div className="avatar-placeholder"><img src="/shreyam2.jpg" alt="SB" className="avatar-img" /></div>
             </div>
             <h1 className="profile-name">{user.name}</h1>
             <p className="profile-title">Aspiring Product Manager</p>
@@ -404,7 +397,7 @@ const HomePage = () => {
               <a href={user.linkedin} target="_blank" rel="noopener noreferrer" className="profile-link">
                 💼 LinkedIn
               </a>
-              <a href={user.resumeLink} target="_blank" rel="noopener noreferrer" className="profile-link">
+              <a href="https://drive.google.com/file/d/1H58Jx8TsQvjIB9SEvkL-qhF2r8NdHiVQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="profile-link">
                 📄 Resume
               </a>
             </div>
@@ -576,7 +569,7 @@ const MetricsPage = () => {
           <div className="metrics-grid-single">
             {metrics.map((metric, index) => (
               <div key={index} className="metric-card">
-                <div className="metric-value">{metric.value}</div>
+                <div className="metric-value-kpi">{metric.value}</div>
                 <div className="metric-label">{metric.label}</div>
                 <div className="metric-description">{metric.description}</div>
               </div>
@@ -856,8 +849,8 @@ const ExperimentsPage = () => {
                 </div>
                 
                 <div className="experiment-metric">
-                  <span className="metric-label">Result</span>
-                  <span className="metric-value">{metricData.metric}</span>
+                  <span className="metric-label">Result:</span>
+                  <span className="metric-value"> {metricData.metric}</span>
                 </div>
 
                 <div className="baseline-target">
@@ -1220,8 +1213,8 @@ const App = () => {
         }
 
         .avatar-placeholder {
-          width: 120px;
-          height: 120px;
+          width: 140px;
+          height: 140px;
           border-radius: 50%;
           background: var(--bg-secondary);
           display: flex;
@@ -1232,7 +1225,15 @@ const App = () => {
           margin: 0 auto;
           border: 4px solid var(--border-color);
           color: var(--text-primary);
+          margin: 0 auto 1.5rem; /* centers avatar */
+          overflow: hidden; /* ensures image doesn't overflow */
         }
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ensures image fills circle */
+  border-radius: 50%;
+}          
 
         .dark-mode .avatar-placeholder {
           background: rgba(255, 255, 255, 0.2);
@@ -1571,8 +1572,8 @@ const App = () => {
           border-color: #f59e0b;
         }
 
-        .metric-value {
-          font-size: 3rem;
+        .metric-value-kpi {
+          font-size: 2.5rem;
           font-weight: 700;
           background: linear-gradient(135deg, #1e40af 0%, #f59e0b 100%);
           -webkit-background-clip: text;
@@ -2266,6 +2267,7 @@ const App = () => {
           padding: 3rem 0;
           margin-top: 4rem;
           margin-bottom: -2rem;
+         
           
           
         }
@@ -2290,14 +2292,14 @@ const App = () => {
         .footer-subtitle {
           font-size: 1.1rem;
           opacity: 0.9;
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
         }
 
         .footer-links {
           display: flex;
           gap: 1.5rem;
           justify-content: center;
-          margin-bottom: 2rem;
+          margin-bottom: 20px;
           flex-wrap: wrap;
         }
 
@@ -2340,9 +2342,9 @@ const App = () => {
           opacity: 0.8;
           font-size: 0.875rem;
         }
-
+        
         .footer-note p {
-          margin-bottom: 0.5rem;
+          margin-bottom: 0  rem;
         }
 
         /* Enhanced Responsive Design */
@@ -2490,8 +2492,8 @@ const App = () => {
           }
 
           .avatar-placeholder {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             font-size: 1.8rem;
           }
 
