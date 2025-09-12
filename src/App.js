@@ -307,7 +307,7 @@ const Navigation = ({ currentPage, setCurrentPage, isDark, setIsDark }) => {
           <div 
             className="nav-highlight" 
             style={{ 
-              transform: `translateX(${highlightStyle.left}px)`,
+              transform: `translateX(${highlightStyle.left - 8}px)`, 
               width: `${highlightStyle.width}px`
             }}
           ></div>
@@ -322,10 +322,12 @@ const Navigation = ({ currentPage, setCurrentPage, isDark, setIsDark }) => {
             </button>
           ))}
         </div>
+         {/* <DarkModeToggle isDark={isDark} setIsDark={setIsDark} /> */}
       </nav>
-      <DarkModeToggle isDark={isDark} setIsDark={setIsDark} />
+      
     </div>
   );
+ 
 };
 
 // Contact Footer Component
@@ -338,31 +340,42 @@ const ContactFooter = () => {
           <p className="footer-subtitle">Ready to ship products that matter?</p>
           
           <div className="footer-links">
-            <a href={`mailto:${user.email}`} className="footer-link">
+                        <a href={`mailto:${user.email}`} className="footer-link">
               📧 {user.email}
             </a>
             <a href={user.linkedin} target="_blank" rel="noopener noreferrer" className="footer-link">
               💼 LinkedIn
             </a>
+
             <a href={user.resumeLink} target="_blank" rel="noopener noreferrer" className="footer-link">
               📄 Resume
             </a>
-          </div>
-
-          <a 
-            href="#" 
-            className="footer-cta"
-            onClick={(e) => {
-              e.preventDefault();
-              alert('Calendar booking link would go here');
-            }}
+             <a 
+            href="https://calendly.com/sb10286-nyu/30min" 
+            className="footer-link"
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   alert('https://calendly.com/sb10286-nyu/30min');
+            // }}
           >
             📅 Book a 15-min Call
           </a>
+          </div>
+
+          {/* <a 
+            href="https://calendly.com/sb10286-nyu/30min" 
+            className="footer-cta"
+            // onClick={(e) => {
+            //   e.preventDefault();
+            //   alert('https://calendly.com/sb10286-nyu/30min');
+            // }}
+          >
+            📅 Book a 15-min Call
+          </a> */}
 
           <div className="footer-note">
-            <p>Built with React and CSS. Minimal, fast, recruiter-friendly.</p>
-            <p>{user.location} • Open to relocate</p>
+            <p>© 2025 Shreyam Borah. All rights reserved.</p>
+            <p>Open to Product Management roles • {user.location} • Open to relocate</p>
           </div>
         </div>
       </div>
@@ -1095,8 +1108,8 @@ const App = () => {
           bottom: 0.5rem;
           background: linear-gradient(135deg, #1e40af 0%, #f59e0b 100%);
           border-radius: 25px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          z-index: 1;
+          transition: all 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 0;
         }
 
         .nav-pill {
@@ -1111,7 +1124,7 @@ const App = () => {
           transition: all 0.3s ease;
           white-space: nowrap;
           position: relative;
-          z-index: 2;
+          z-index: 1;
           text-align: center;
           min-width: fit-content;
           flex-shrink: 0;
@@ -1187,7 +1200,8 @@ const App = () => {
           border: 1px solid var(--border-color);
           border-radius: 2rem;
           padding: 3rem;
-          margin-bottom: 4rem;
+          margin-bottom: 1.5rem;
+          margin-top: 1.5rem;
           max-width: 600px;
           margin-left: auto;
           margin-right: auto;
@@ -2251,12 +2265,16 @@ const App = () => {
           color: white;
           padding: 3rem 0;
           margin-top: 4rem;
+          margin-bottom: -2rem;
+          
+          
         }
 
         .footer-container {
-          max-width: 800px;
+          max-width: fit-content;
           margin: 0 auto;
           padding: 0 2rem;
+          
         }
 
         .footer-content {
