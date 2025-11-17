@@ -25,7 +25,7 @@ const user = {
   email: "shreyamb21@gmail.com",
   phone: "+1 (201) 469 1480",
   linkedin: "https://linkedin.com/in/shreyamborah/",
-  resumeLink: "https://drive.google.com/file/d/1H58Jx8TsQvjIB9SEvkL-qhF2r8NdHiVQ/view?usp=drive_link",
+  resumeLink: "https://drive.google.com/file/d/1OihdwiaB6FkvjDxe0XgSEQa0L4ZlZ9MC/view?usp=sharing",
   openToRelocate: true
 };
 
@@ -259,7 +259,7 @@ const Navigation = ({ currentPage, setCurrentPage, isDark, setIsDark }) => {
 
   const pages = [
     { id: 'home', label: 'Home' },
-    { id: 'metrics', label: 'Metrics' },
+    //{ id: 'metrics', label: 'Metrics' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'experiments', label: 'Experiments' },
@@ -347,7 +347,7 @@ const ContactFooter = () => {
               💼 LinkedIn
             </a>
 
-            <a href="https://drive.google.com/file/d/1H58Jx8TsQvjIB9SEvkL-qhF2r8NdHiVQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="footer-link">
+            <a href="https://drive.google.com/file/d/1OihdwiaB6FkvjDxe0XgSEQa0L4ZlZ9MC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="footer-link">
               📄 Resume
             </a>
              <a 
@@ -384,10 +384,10 @@ const HomePage = () => {
         <div className="hero-section">
           <div className="profile-card">
             <div className="profile-avatar">
-              <div className="avatar-placeholder"><img src="/shreyam2.jpg" alt="SB" className="avatar-img" /></div>
+              <div className="avatar-placeholder"><img src="/shreyam3.JPG" alt="SB" className="avatar-img" /></div>
             </div>
             <h1 className="profile-name">{user.name}</h1>
-            <p className="profile-title">Aspiring Product Manager</p>
+            <p className="profile-title">Product Manager</p>
             <p className="profile-location">{user.location} • Open to relocate</p>
             
             <div className="profile-links">
@@ -397,7 +397,7 @@ const HomePage = () => {
               <a href={user.linkedin} target="_blank" rel="noopener noreferrer" className="profile-link">
                 💼 LinkedIn
               </a>
-              <a href="https://drive.google.com/file/d/1H58Jx8TsQvjIB9SEvkL-qhF2r8NdHiVQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="profile-link">
+              <a href="https://drive.google.com/file/d/1OihdwiaB6FkvjDxe0XgSEQa0L4ZlZ9MC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="profile-link">
                 📄 Resume
               </a>
             </div>
@@ -497,128 +497,128 @@ const HomePage = () => {
   );
 };
 
-// Combined Metrics Page Component
-const MetricsPage = () => {
-  const [selectedScenario, setSelectedScenario] = useState('Baseline');
+// // Combined Metrics Page Component
+// const MetricsPage = () => {
+//   const [selectedScenario, setSelectedScenario] = useState('Baseline');
 
-  const scenarios = {
-    'Baseline': {
-      title: 'Baseline Performance',
-      description: 'Starting metrics before optimization',
-      metrics: [
-        { label: 'Test Cycles', value: '100%', trend: 'neutral' },
-        { label: 'Accuracy', value: '100%', trend: 'neutral' },
-        { label: 'Delivery Time', value: '100%', trend: 'neutral' },
-        { label: 'User Satisfaction', value: '70%', trend: 'neutral' }
-      ]
-    },
-    'IITB': {
-      title: 'IIT Bombay Simulation',
-      description: 'Unity-based truckload optimization results',
-      metrics: [
-        { label: 'Test Cycles', value: '↓40%', trend: 'positive' },
-        { label: 'Simulation Accuracy', value: '↑30%', trend: 'positive' },
-        { label: 'Prototype Scalability', value: '↑100%', trend: 'positive' },
-        { label: 'Research Velocity', value: '↑60%', trend: 'positive' }
-      ]
-    },
-    'Caarya': {
-      title: 'Caarya Funnel Optimization',
-      description: 'Founder engagement and conversion improvements',
-      metrics: [
-        { label: 'Delivery Delays', value: '↓15%', trend: 'positive' },
-        { label: 'Lead→Conversion', value: '↑20%', trend: 'positive' },
-        { label: 'Inbound Leads', value: '↑25%', trend: 'positive' },
-        { label: 'Qualified Leads', value: '↑30%', trend: 'positive' }
-      ]
-    },
-    'Sarikart': {
-      title: 'Sarikart Analytics Platform',
-      description: 'Data-driven marketplace optimization',
-      metrics: [
-        { label: 'Daily CTR', value: '↑8%', trend: 'positive' },
-        { label: 'Brand Visibility', value: '↑15%', trend: 'positive' },
-        { label: 'Data Errors', value: '↓30%', trend: 'positive' },
-        { label: 'Market Share', value: '↑5%', trend: 'positive' }
-      ]
-    },
-    'Indicverse': {
-      title: 'Indicverse VR Experience',
-      description: 'Interactive historical education platform',
-      metrics: [
-        { label: 'User Satisfaction', value: '90%+', trend: 'positive' },
-        { label: 'Educational Impact', value: '↑85%', trend: 'positive' },
-        { label: 'Engagement Time', value: '↑120%', trend: 'positive' },
-        { label: 'Learning Retention', value: '↑75%', trend: 'positive' }
-      ]
-    }
-  };
+//   const scenarios = {
+//     'Baseline': {
+//       title: 'Baseline Performance',
+//       description: 'Starting metrics before optimization',
+//       metrics: [
+//         { label: 'Test Cycles', value: '100%', trend: 'neutral' },
+//         { label: 'Accuracy', value: '100%', trend: 'neutral' },
+//         { label: 'Delivery Time', value: '100%', trend: 'neutral' },
+//         { label: 'User Satisfaction', value: '70%', trend: 'neutral' }
+//       ]
+//     },
+//     'IITB': {
+//       title: 'IIT Bombay Simulation',
+//       description: 'Unity-based truckload optimization results',
+//       metrics: [
+//         { label: 'Test Cycles', value: '↓40%', trend: 'positive' },
+//         { label: 'Simulation Accuracy', value: '↑30%', trend: 'positive' },
+//         { label: 'Prototype Scalability', value: '↑100%', trend: 'positive' },
+//         { label: 'Research Velocity', value: '↑60%', trend: 'positive' }
+//       ]
+//     },
+//     'Caarya': {
+//       title: 'Caarya Funnel Optimization',
+//       description: 'Founder engagement and conversion improvements',
+//       metrics: [
+//         { label: 'Delivery Delays', value: '↓15%', trend: 'positive' },
+//         { label: 'Lead→Conversion', value: '↑20%', trend: 'positive' },
+//         { label: 'Inbound Leads', value: '↑25%', trend: 'positive' },
+//         { label: 'Qualified Leads', value: '↑30%', trend: 'positive' }
+//       ]
+//     },
+//     'Sarikart': {
+//       title: 'Sarikart Analytics Platform',
+//       description: 'Data-driven marketplace optimization',
+//       metrics: [
+//         { label: 'Daily CTR', value: '↑8%', trend: 'positive' },
+//         { label: 'Brand Visibility', value: '↑15%', trend: 'positive' },
+//         { label: 'Data Errors', value: '↓30%', trend: 'positive' },
+//         { label: 'Market Share', value: '↑5%', trend: 'positive' }
+//       ]
+//     },
+//     'Indicverse': {
+//       title: 'Indicverse VR Experience',
+//       description: 'Interactive historical education platform',
+//       metrics: [
+//         { label: 'User Satisfaction', value: '90%+', trend: 'positive' },
+//         { label: 'Educational Impact', value: '↑85%', trend: 'positive' },
+//         { label: 'Engagement Time', value: '↑120%', trend: 'positive' },
+//         { label: 'Learning Retention', value: '↑75%', trend: 'positive' }
+//       ]
+//     }
+//   };
 
-  const currentScenario = scenarios[selectedScenario];
+//   const currentScenario = scenarios[selectedScenario];
 
-  return (
-    <div className="page">
-      <div className="page-container">
-        <div className="page-header">
-          <h1 className="page-title">Impact Metrics</h1>
-          <p className="page-subtitle">Measurable outcomes and interactive scenarios</p>
-        </div>
+//   return (
+//     <div className="page">
+//       <div className="page-container">
+//         <div className="page-header">
+//           <h1 className="page-title">Impact Metrics</h1>
+//           <p className="page-subtitle">Measurable outcomes and interactive scenarios</p>
+//         </div>
         
-        <div className="metrics-section">
-          <h3 className="section-subtitle">Key Performance Indicators</h3>
-          <div className="metrics-grid-single">
-            {metrics.map((metric, index) => (
-              <div key={index} className="metric-card">
-                <div className="metric-value-kpi">{metric.value}</div>
-                <div className="metric-label">{metric.label}</div>
-                <div className="metric-description">{metric.description}</div>
-              </div>
-            ))}
-          </div>
-        </div>
+//         <div className="metrics-section">
+//           <h3 className="section-subtitle">Key Performance Indicators</h3>
+//           <div className="metrics-grid-single">
+//             {metrics.map((metric, index) => (
+//               <div key={index} className="metric-card">
+//                 <div className="metric-value-kpi">{metric.value}</div>
+//                 <div className="metric-label">{metric.label}</div>
+//                 <div className="metric-description">{metric.description}</div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
 
-        <div className="dashboard-section">
-          <h3 className="section-subtitle">Interactive Scenario Dashboard</h3>
+//         <div className="dashboard-section">
+//           <h3 className="section-subtitle">Interactive Scenario Dashboard</h3>
           
-          <div className="dashboard-controls">
-            <div className="custom-select">
-              <select
-                value={selectedScenario}
-                onChange={(e) => setSelectedScenario(e.target.value)}
-                className="scenario-select"
-              >
-                {Object.keys(scenarios).map((scenario) => (
-                  <option key={scenario} value={scenario}>
-                    {scenario}
-                  </option>
-                ))}
-              </select>
-              <div className="select-arrow">⌄</div>
-            </div>
-          </div>
+//           <div className="dashboard-controls">
+//             <div className="custom-select">
+//               <select
+//                 value={selectedScenario}
+//                 onChange={(e) => setSelectedScenario(e.target.value)}
+//                 className="scenario-select"
+//               >
+//                 {Object.keys(scenarios).map((scenario) => (
+//                   <option key={scenario} value={scenario}>
+//                     {scenario}
+//                   </option>
+//                 ))}
+//               </select>
+//               <div className="select-arrow">⌄</div>
+//             </div>
+//           </div>
 
-          <div className="scenario-info">
-            <h4 className="scenario-title">{currentScenario.title}</h4>
-            <p className="scenario-description">{currentScenario.description}</p>
-          </div>
+//           <div className="scenario-info">
+//             <h4 className="scenario-title">{currentScenario.title}</h4>
+//             <p className="scenario-description">{currentScenario.description}</p>
+//           </div>
 
-          <div className="dashboard-metrics-single">
-            {currentScenario.metrics.map((metric, index) => (
-              <div key={index} className={`dashboard-card ${metric.trend}`}>
-                <div className="dashboard-label">{metric.label}</div>
-                <div className="dashboard-value">{metric.value}</div>
-                <div className="dashboard-bar">
-                  <div className={`progress-bar ${metric.trend}`}></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <ContactFooter />
-    </div>
-  );
-};
+//           <div className="dashboard-metrics-single">
+//             {currentScenario.metrics.map((metric, index) => (
+//               <div key={index} className={`dashboard-card ${metric.trend}`}>
+//                 <div className="dashboard-label">{metric.label}</div>
+//                 <div className="dashboard-value">{metric.value}</div>
+//                 <div className="dashboard-bar">
+//                   <div className={`progress-bar ${metric.trend}`}></div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//       <ContactFooter />
+//     </div>
+//   );
+// };
 
 // Experience Page Component
 const ExperiencePage = () => {
@@ -973,7 +973,7 @@ const App = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'home': return <HomePage />;
-      case 'metrics': return <MetricsPage />;
+      //case 'metrics': return <MetricsPage />;
       case 'experience': return <ExperiencePage />;
       case 'projects': return <ProjectsPage />;
       case 'experiments': return <ExperimentsPage />;
@@ -1213,8 +1213,8 @@ const App = () => {
         }
 
         .avatar-placeholder {
-          width: 140px;
-          height: 140px;
+          width: 200px;
+          height: 200px;
           border-radius: 50%;
           background: var(--bg-secondary);
           display: flex;
