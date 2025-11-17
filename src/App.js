@@ -336,7 +336,7 @@ const ContactFooter = () => {
     <footer id="contact-footer" className="contact-footer">
       <div className="footer-container">
         <div className="footer-content">
-          <h3 className="footer-title">Let's Connect</h3>
+          <h3 className="footer-title">Let's Connect!</h3>
           <p className="footer-subtitle">Ready to ship products that matter?</p>
           
           <div className="footer-links">
