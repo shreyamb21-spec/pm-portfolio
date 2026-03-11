@@ -14,7 +14,7 @@ import googleIcon from "./assets/icons/google.png";
 import powerbiIcon from "./assets/icons/powerbi.png";
 import tableauIcon from "./assets/icons/tableau.png";
 
-
+//OLD PORTFOLIO
 
 
 // Data
