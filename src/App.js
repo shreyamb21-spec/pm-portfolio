@@ -28,7 +28,7 @@ const FONT = {
   mono: "'JetBrains Mono', monospace",
 };
 
-// ─── DATA ───────────────────────────────────────────────────────
+// ─── DATA ───────────────────────────────────────────────────
 const user = {
   name: "Shreyam Borah",
   title: "Product Manager",
