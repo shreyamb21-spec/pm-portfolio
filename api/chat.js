@@ -71,10 +71,11 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: "API key not configured" });
   }
 
-  const input = [
-    { role: "system", content: SYSTEM_PROMPT },
-    ...messages.map((m) => ({ role: m.role, content: m.content })),
-  ];
+  const input = messages.map((m) => ({
+    type: "message",
+    role: m.role,
+    content: m.content,
+  }));
 
   try {
     const upstream = await fetch("https://api-gateway.merge.dev/v1/responses", {
@@ -85,6 +86,7 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify({
         input,
+        instructions: SYSTEM_PROMPT,
         stream: false,
         model: "anthropic/claude-sonnet-5",
       }),
