@@ -87,8 +87,7 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify({
         input,
         instructions: SYSTEM_PROMPT,
-        stream: true,
-        include_routing_metadata: true,
+        stream: false,
         model: "anthropic/claude-sonnet-5",
       }),
     });
@@ -99,34 +98,36 @@ module.exports = async function handler(req, res) {
       return res.status(502).json({ error: "Upstream error", detail: err });
     }
 
-    // Read the SSE stream and collect all text deltas
-    const raw = await upstream.text();
+    const data = await upstream.json();
+    console.log("Merge Gateway response:", JSON.stringify(data).slice(0, 500));
+
     let text = "";
 
-    for (const line of raw.split("\n")) {
-      const trimmed = line.trim();
-      if (!trimmed.startsWith("data:")) continue;
-      const jsonStr = trimmed.slice(5).trim();
-      if (jsonStr === "[DONE]") break;
-      try {
-        const evt = JSON.parse(jsonStr);
-        // OpenAI Responses API streaming delta format
-        if (evt.delta) {
-          text += evt.delta;
+    // OpenAI Responses API format: data.output[].content[].text
+    if (Array.isArray(data.output)) {
+      for (const item of data.output) {
+        if (Array.isArray(item.content)) {
+          for (const block of item.content) {
+            if (block.type === "output_text" && block.text) text += block.text;
+          }
         }
-        // Fallback: completed text on done event
-        if (evt.type === "response.output_text.done" && evt.text) {
-          text = evt.text;
-        }
-        // OpenAI chat completions streaming format (fallback)
-        const delta = evt?.choices?.[0]?.delta?.content;
-        if (delta) text += delta;
-      } catch {
-        // non-JSON SSE line, skip
+        // Some formats put text directly on the item
+        if (typeof item.text === "string") text += item.text;
       }
     }
 
+    // OpenAI Chat Completions format fallback
     if (!text) {
+      text = data.choices?.[0]?.message?.content || "";
+    }
+
+    // Direct text field fallback
+    if (!text && typeof data.text === "string") {
+      text = data.text;
+    }
+
+    if (!text) {
+      console.error("Could not extract text from response:", JSON.stringify(data));
       text = "I couldn't generate a response. Please try again.";
     }
 
