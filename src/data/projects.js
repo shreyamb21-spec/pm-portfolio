@@ -1,0 +1,81 @@
+const projects = [
+  {
+    id: "pantheon",
+    name: "Pantheon",
+    subtitle: "Real-Time Multiplayer AI God Game · SpacetimeDB Hackathon",
+    description: "Browser-based strategy simulation — four AI civilizations with autonomous decision-making, players cast miracles from their phones while a live big screen renders the world.",
+    dateLabel: "Jun 2026",
+    tagType: "Shipped Product",
+    bullets: [
+      "Architected the game on SpacetimeDB — a relational database running WebAssembly modules — eliminating a traditional game server entirely; scheduled reducers drive autonomous world simulation even with no clients connected",
+      "Designed a rule-based fast path for stable AI civilizations and reserved Claude Sonnet 4.6 tool-use calls for moments of drama (miracles, wars, crises), batching multiple civs into a single API call per tick",
+      "Built three simultaneous connected surfaces (big screen, phone god panel, join flow) all subscribing to the same real-time SpacetimeDB tables with zero explicit sync layer",
+      "Designed 8 secret player win-conditions that structurally conflict with each other, creating emergent multiplayer tension from a simple rule set",
+    ],
+    tags: ["Multi-Agent AI", "Real-Time", "SpacetimeDB", "Next.js", "Game Design"],
+    repoUrl: "https://github.com/salonisaraf30/spacetime",
+  },
+  {
+    id: "poker-ai",
+    name: "Poker AI",
+    subtitle: "Sealed-State Multi-Agent Simulation · Hackathon",
+    description: "Four AI agents with distinct personalities play scripted poker hands under real information asymmetry — a proof-of-concept for environments where agents must reason privately and compete adversarially.",
+    dateLabel: "Jun 2026",
+    tagType: "Shipped Product",
+    bullets: [
+      "Enforced sealed-state information structurally in the generation pipeline — no agent's prompt ever includes another agent's private hole cards, mirroring real negotiation/litigation information constraints",
+      "Chose pre-generated, offline LLM calls over live generation for demo reliability, curation control, and instant static playback — traded generative spontaneity for guaranteed narrative quality under pitch conditions",
+      "Designed 4 distinct agent personalities (pure math, aggressive bluffer, strict range player, pattern-exploiter) via system prompts, each producing consistent, readable reasoning for a non-technical audience",
+      "Built a full audit trail logging every agent decision with reasoning text, tags, and context — a concrete demo of the accountability layer high-stakes AI deployments require",
+    ],
+    tags: ["Multi-Agent AI", "Sealed-State Reasoning", "Next.js", "Python", "Tool Use"],
+    repoUrl: "https://github.com/swooshie/poker-ai",
+  },
+
+  {
+    id: "competitorpulse",
+    name: "CompetitorPulse",
+    subtitle: "Co-founder & Product Lead · AI Competitive Intelligence SaaS",
+    description: "AI-native competitive intelligence for bootstrapped founders — multi-agent LLM pipeline, freemium monetization with active beta testers, underserved SMB positioning.",
+    dateLabel: "2025 – Present",
+    tagType: "Shipped Product",
+    bullets: [
+      "Designed the system architecture: 7-agent LLM pipeline on NVIDIA Nemotron 70B with orchestrated prompt chains, MD5 content diffing for deduplication, and 6-hour scheduled scrape cycles — chose Nemotron over GPT-4/Claude based on context window size, cost-per-token economics, and output quality for structured competitive analysis",
+      "Designed freemium monetization model with Stripe-integrated feature gating across $0 / $19 / $79 monthly plans, with active beta testers validating the core product loop",
+      "Led 18-week agile roadmap across auth (Supabase), ingestion, AI pipeline, and billing workstreams for a 4-person team, maintaining parallel sprint execution with zero cross-team blockers",
+      "Identified $0-to-enterprise pricing gap by benchmarking 6 CI tools (Crayon, Klue, Kompyte), positioning product for early-stage founders and SMBs with no AI-native competitor",
+    ],
+    tags: ["SaaS", "AI/LLM", "Monetization", "Competitive Analysis"],
+    repoUrl: "https://github.com/salonisaraf30/que",
+  },
+  {
+    id: "medicare",
+    name: "Medicare DHR & Triage",
+    subtitle: "Project Management · AI Health Records",
+    description: "AI symptom intake and patient triage system — $1.5M budget, PMBOK methodology, pilot-ready.",
+    dateLabel: "2025",
+    tagType: "Coursework",
+    bullets: [
+      "Planned product digitizing records + AI triage to route patients by urgency and reduce front-desk load",
+      "Built 6-month roadmap ($1.5M) using PMBOK: Project Charter, WBS, MS Project schedule",
+      "Defined pilot criteria: >85% triage accuracy, >40% faster onboarding, >90% staff adoption",
+    ],
+    tags: ["Healthcare", "PMBOK", "AI", "Budgeting"],
+  },
+  {
+    id: "homies",
+    name: "Homies",
+    subtitle: "Product Design & GTM · Fintech",
+    description: "First-time homebuyer platform for NYC — gamified savings + seller-bank connections for affluent families.",
+    dateLabel: "2024",
+    tagType: "Coursework",
+    bullets: [
+      "Led product design addressing gaps in collaborative savings, credit building, and property financing",
+      "Planned 2 MVP features: gamified savings tool + seller-bank connector covering broker fees",
+      "Sized $119M/yr NYC metro TAM; developed GTM with referral programs and B2B2C partnerships",
+    ],
+    tags: ["Product Design", "GTM", "Market Sizing", "Fintech"],
+  },
+];
+
+export default projects;
