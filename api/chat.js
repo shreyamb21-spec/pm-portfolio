@@ -66,16 +66,31 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: "messages array required" });
   }
 
+  // Cap history to last 6 messages to keep token costs bounded
+  const recentMessages = messages.slice(-6);
+
   const apiKey = process.env.MERGE_GATEWAY_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: "API key not configured" });
   }
 
-  const input = messages.map((m) => ({
-    type: "message",
-    role: m.role,
-    content: m.content,
-  }));
+  const input = [
+    {
+      type: "message",
+      role: "user",
+      content: `SYSTEM INSTRUCTIONS (follow these for the entire conversation):\n\n${SYSTEM_PROMPT}`,
+    },
+    {
+      type: "message",
+      role: "assistant",
+      content: "Understood. I'm Vera, Shreyam's AI representative on his portfolio. I'll answer questions about his background, projects, and experience based on the context provided.",
+    },
+    ...recentMessages.map((m) => ({
+      type: "message",
+      role: m.role,
+      content: m.content,
+    })),
+  ];
 
   try {
     const upstream = await fetch("https://api-gateway.merge.dev/v1/responses", {
@@ -86,7 +101,6 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify({
         input,
-        instructions: SYSTEM_PROMPT,
         stream: false,
         model: "anthropic/claude-sonnet-5",
       }),
