@@ -71,11 +71,10 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: "API key not configured" });
   }
 
-  const input = messages.map((m) => ({
-    type: "message",
-    role: m.role,
-    content: m.content,
-  }));
+  const input = [
+    { role: "system", content: SYSTEM_PROMPT },
+    ...messages.map((m) => ({ role: m.role, content: m.content })),
+  ];
 
   try {
     const upstream = await fetch("https://api-gateway.merge.dev/v1/responses", {
@@ -86,7 +85,6 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify({
         input,
-        instructions: SYSTEM_PROMPT,
         stream: false,
         model: "anthropic/claude-sonnet-5",
       }),
@@ -108,7 +106,7 @@ module.exports = async function handler(req, res) {
       for (const item of data.output) {
         if (Array.isArray(item.content)) {
           for (const block of item.content) {
-            if (block.type === "output_text" && block.text) text += block.text;
+            if ((block.type === "text" || block.type === "output_text") && block.text) text += block.text;
           }
         }
         // Some formats put text directly on the item
