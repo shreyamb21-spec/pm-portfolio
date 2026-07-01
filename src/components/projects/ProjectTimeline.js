@@ -11,7 +11,6 @@ const ProjectTimeline = ({ projects, cardRefs }) => {
   const recalc = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
-    const containerRect = container.getBoundingClientRect();
     const containerScrollTop = container.getBoundingClientRect().top + window.scrollY;
 
     const tops = cardRefs.current.map((el) => {
