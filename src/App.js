@@ -46,8 +46,13 @@ export default function Portfolio() {
           0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
           40% { opacity: 1; transform: scale(1); }
         }
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+          /* Reduce vertical section padding on all sections except hero */
+          section:not(#about) { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+          /* Tighten horizontal padding on all sections */
           section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+          /* Hide nav scrollbar on mobile */
+          nav div::-webkit-scrollbar { display: none; }
         }
       `}</style>
       <Analytics />

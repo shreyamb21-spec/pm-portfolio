@@ -5,10 +5,12 @@ import SectionLabel from "../layout/SectionLabel";
 import SectionTitle from "../layout/SectionTitle";
 import ProjectCard from "./ProjectCard";
 import ProjectTimeline from "./ProjectTimeline";
+import useIsMobile from "../../hooks/useIsMobile";
 import projects from "../../data/projects";
 
 const ProjectsSection = () => {
   const cardRefs = useRef([]);
+  const isMobile = useIsMobile();
 
   return (
     <section id="projects" style={{ padding: "6rem 2rem", background: C.bgAlt }}>
@@ -18,9 +20,8 @@ const ProjectsSection = () => {
           <SectionTitle>Things I've launched</SectionTitle>
         </FadeIn>
 
-        {/* Timeline left + cards right */}
         <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
-          <ProjectTimeline projects={projects} cardRefs={cardRefs} />
+          {!isMobile && <ProjectTimeline projects={projects} cardRefs={cardRefs} />}
 
           <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "1.25rem" }}>
             {projects.map((p, i) => (
